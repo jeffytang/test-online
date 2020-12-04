@@ -19,6 +19,6 @@ public interface LoginMapper {
 
     @Select("select studentId,studentName,grade,major,clazz,institute,tel," +
             " email,cardId,sex,role from student where studentId = #{username} and pwd = #{password}")
-    public Student studentLogin(Integer username, String password);
+    Student studentLogin(Integer username, String password);
 
 }
