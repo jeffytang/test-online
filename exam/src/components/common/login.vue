@@ -34,7 +34,7 @@
     </el-row>
     <el-row class="footer">
       <el-col>
-        <p class="msg2">版权所有 ©2019 <!--重庆文理学院计科2班余晓江--> 保留所有权利 渝ICP备19001371号</p>
+        <p class="msg2">版权所有 ©2020 <!--抖码课堂--> 保留所有权利</p>
       </el-col>
     </el-row>
     <section class="remind">
@@ -61,52 +61,7 @@ export default {
       }
     }
   },
-  methods: {
-    //用户登录请求后台处理
-    login() {
-      console.log("登录操作执行-------");
-      this.$axios({
-        url: `/api/login`,
-        method: 'post',
-        data: {
-          ...this.formLabelAlign
-        }
-      }).then(res=>{
-        let resData = res.data.data
-        if(resData != null) {
-          switch(resData.role) {
-            case "0":  //管理员
-              this.$cookies.set("cname", resData.adminName)
-              this.$cookies.set("cid", resData.adminId)
-              this.$cookies.set("role", 0)
-              this.$router.push({path: '/index' }) //跳转到首页
-              break
-            case "1": //教师
-              this.$cookies.set("cname", resData.teacherName)
-              this.$cookies.set("cid", resData.teacherId)
-              this.$cookies.set("role", 1)
-              this.$router.push({path: '/index' }) //跳转到教师用户
-              break
-            case "2": //学生
-              this.$cookies.set("cname", resData.studentName)
-              this.$cookies.set("cid", resData.studentId)
-              this.$router.push({path: '/student'})
-              break
-          }
-        }
-        if(resData == null) { //错误提示
-          this.$message({
-            showClose: true,
-            type: 'error',
-            message: '用户名或者密码错误'
-          })
-        }
-      })
-    },
-    clickTag(key) {
-      this.role = key
-    }
-  },
+  methods: {},
   computed: mapState(["userInfo"]),
   mounted() {
 
