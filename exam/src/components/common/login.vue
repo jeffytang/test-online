@@ -61,7 +61,21 @@ export default {
       }
     }
   },
-  methods: {},
+  methods: {
+    //用户登录请求后台处理
+    login() {
+      console.log("登录操作执行-------");
+      this.$axios({
+        url: `/api/login`,
+        method: 'post',
+        data: {
+          ...this.formLabelAlign
+        }
+      }).then(res => {
+        console.log(res);
+      })
+    }
+  },
   computed: mapState(["userInfo"]),
   mounted() {
 
