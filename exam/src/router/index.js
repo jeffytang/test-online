@@ -12,6 +12,12 @@ export default new Router({
     {
       path: '/index', //教师主页
       component: () => import('@/components/admin/index'),
+      children: [
+        {
+          path: '/examDescription', //考试管理功能描述
+          component: () => import('@/components/teacher/examDescription')
+        }
+      ]
     }
   ]
 })
