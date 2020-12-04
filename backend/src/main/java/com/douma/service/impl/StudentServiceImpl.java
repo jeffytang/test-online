@@ -20,4 +20,12 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.getStudentInfo(page);
     }
 
+    /**
+     * 实现插入一个学生
+     */
+    @Override
+    public boolean updateStudent(Student student) {
+        return studentMapper.updateStudent(student);
+    }
+
 }

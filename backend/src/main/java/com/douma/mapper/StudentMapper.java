@@ -3,8 +3,10 @@ package com.douma.mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.Student;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface StudentMapper {
@@ -17,4 +19,11 @@ public interface StudentMapper {
      */
     @Select("select * from student")
     IPage<Student> getStudentInfo(Page page);
+
+    /**
+     * 添加一个学生
+     */
+    @Insert("INSERT INTO student(studentName,grade,major,clazz,institute,tel,email,pwd,sex,role)" +
+            "VALUES(#{studentName}, #{grade}, #{major}, #{clazz}, #{institute}, #{tel}, #{email}, #{pwd}, #{sex}, #{role})")
+    boolean updateStudent(Student student);
 }
