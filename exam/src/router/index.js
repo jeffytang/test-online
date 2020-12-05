@@ -14,6 +14,10 @@ export default new Router({
       component: () => import('@/components/admin/index'),
       children: [
         {
+          path:'/grade', //学生成绩
+          component: () => import('@/components/charts/grade')
+        },
+        {
           path: '/examDescription', //考试管理功能描述
           component: () => import('@/components/teacher/examDescription')
         },
