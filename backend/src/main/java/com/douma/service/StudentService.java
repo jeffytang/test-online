@@ -10,10 +10,31 @@ public interface StudentService {
      * @param page
      * @return
      */
-    IPage getStudentInfo(Page<Student> page);
+    IPage findAll(Page<Student> page);
+
+    /**
+     * 通过id查询学生信息
+     * @param studentId
+     * @return
+     */
+    Student findById(Integer studentId);
+
+    /**
+     * 更新
+     * @param student
+     * @return
+     */
+    int update(Student student);
 
     /**
      * 插入一个学生
      */
     boolean updateStudent(Student student);
+
+    /**
+     * 通过 id 删除学学生信息
+     * @param studentId
+     * @return
+     */
+    int deleteById(Integer studentId);
 }

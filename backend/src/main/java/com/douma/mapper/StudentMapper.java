@@ -3,10 +3,7 @@ package com.douma.mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.Student;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface StudentMapper {
@@ -18,12 +15,31 @@ public interface StudentMapper {
      * @return  Student
      */
     @Select("select * from student")
-    IPage<Student> getStudentInfo(Page page);
+    IPage<Student> findAll(Page page);
 
     /**
      * 添加一个学生
      */
+    @Options(useGeneratedKeys = true,keyProperty = "studentId")
     @Insert("INSERT INTO student(studentName,grade,major,clazz,institute,tel,email,pwd,sex,role)" +
             "VALUES(#{studentName}, #{grade}, #{major}, #{clazz}, #{institute}, #{tel}, #{email}, #{pwd}, #{sex}, #{role})")
     boolean updateStudent(Student student);
+
+    @Select("select * from student where studentId = #{studentId}")
+    Student findById(Integer studentId);
+
+    /**
+     * 修改学生信息
+     * @param student
+     * @return
+     */
+    @Update("update student set studentName = #{studentName},grade = #{grade},major = #{major},clazz = #{clazz}," +
+            "institute = #{institute},tel = #{tel},email = #{email},pwd = #{pwd},cardId = #{cardId},sex = #{sex},role = #{role}" +
+            "where studentId = #{studentId}")
+    int update(Student student);
+
+    @Delete("delete from student where studentId = #{studentId}")
+    int deleteById(Integer studentId);
+
+
 }
