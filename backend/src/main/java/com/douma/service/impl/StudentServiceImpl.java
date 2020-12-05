@@ -17,20 +17,20 @@ public class StudentServiceImpl implements StudentService {
      */
     @Override
     public IPage<Student> findAll(Page<Student> page) {
-        return studentMapper.findAll(page);
+        return studentMapper.selectAll(page);
     }
 
     @Override
     public Student findById(Integer studentId) {
-        return studentMapper.findById(studentId);
+        return studentMapper.selectById(studentId);
     }
 
     /**
      * 实现插入一个学生
      */
     @Override
-    public boolean updateStudent(Student student) {
-        return studentMapper.updateStudent(student);
+    public boolean save(Student student) {
+        return studentMapper.insert(student);
     }
 
     /**
@@ -39,7 +39,7 @@ public class StudentServiceImpl implements StudentService {
      * @return
      */
     @Override
-    public int deleteById(Integer studentId) {
+    public int removeById(Integer studentId) {
         return studentMapper.deleteById(studentId);
     }
 
@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
      * @return
      */
     @Override
-    public int update(Student student) {
+    public int modify(Student student) {
         return studentMapper.update(student);
     }
 

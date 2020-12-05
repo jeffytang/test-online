@@ -15,7 +15,7 @@ public interface StudentMapper {
      * @return  Student
      */
     @Select("select * from student")
-    IPage<Student> findAll(Page page);
+    IPage<Student> selectAll(Page page);
 
     /**
      * 添加一个学生
@@ -23,10 +23,10 @@ public interface StudentMapper {
     @Options(useGeneratedKeys = true,keyProperty = "studentId")
     @Insert("INSERT INTO student(studentName,grade,major,clazz,institute,tel,email,pwd,sex,role)" +
             "VALUES(#{studentName}, #{grade}, #{major}, #{clazz}, #{institute}, #{tel}, #{email}, #{pwd}, #{sex}, #{role})")
-    boolean updateStudent(Student student);
+    boolean insert(Student student);
 
     @Select("select * from student where studentId = #{studentId}")
-    Student findById(Integer studentId);
+    Student selectById(Integer studentId);
 
     /**
      * 修改学生信息

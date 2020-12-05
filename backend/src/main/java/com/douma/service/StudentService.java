@@ -24,17 +24,17 @@ public interface StudentService {
      * @param student
      * @return
      */
-    int update(Student student);
+    int modify(Student student);
 
     /**
      * 插入一个学生
      */
-    boolean updateStudent(Student student);
+    boolean save(Student student);
 
     /**
      * 通过 id 删除学学生信息
      * @param studentId
      * @return
      */
-    int deleteById(Integer studentId);
+    int removeById(Integer studentId);
 }
