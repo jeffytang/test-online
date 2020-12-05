@@ -45,7 +45,7 @@ public class StudentController {
      */
     @PostMapping("/student")
     public ApiResult saveStudent(@RequestBody Student student){
-        boolean res = studentService.updateStudent(student);
+        boolean res = studentService.save(student);
         if (res){
             return ApiResultHandler.buildApiResult(200, "新增一个学生", res);
         }else {
@@ -60,7 +60,7 @@ public class StudentController {
      */
     @PutMapping("/student")
     public ApiResult update(@RequestBody Student student){
-        int res = studentService.update(student);
+        int res = studentService.modify(student);
         if (res != 0){
             return ApiResultHandler.buildApiResult(200, "更新成功", res);
         }else {
@@ -70,7 +70,7 @@ public class StudentController {
 
     @DeleteMapping("/student/{studentId}")
     public ApiResult delete(@PathVariable("studentId") Integer studentId){
-        int res = studentService.deleteById(studentId);
+        int res = studentService.removeById(studentId);
         if (res == 1){
             return ApiResultHandler.buildApiResult(200, "删除失败", res);
         }else {
