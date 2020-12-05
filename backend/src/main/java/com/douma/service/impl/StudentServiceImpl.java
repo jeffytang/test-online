@@ -16,8 +16,42 @@ public class StudentServiceImpl implements StudentService {
      * 实现接口的方法调用持久层数据
      */
     @Override
-    public IPage<Student> getStudentInfo(Page<Student> page) {
-        return studentMapper.getStudentInfo(page);
+    public IPage<Student> findAll(Page<Student> page) {
+        return studentMapper.selectAll(page);
     }
+
+    @Override
+    public Student findById(Integer studentId) {
+        return studentMapper.selectById(studentId);
+    }
+
+    /**
+     * 实现插入一个学生
+     */
+    @Override
+    public boolean save(Student student) {
+        return studentMapper.insert(student);
+    }
+
+    /**
+     * 删除学生信息
+     * @param studentId
+     * @return
+     */
+    @Override
+    public int removeById(Integer studentId) {
+        return studentMapper.deleteById(studentId);
+    }
+
+    /**
+     * 修改学生信息
+     * @param student
+     * @return
+     */
+    @Override
+    public int modify(Student student) {
+        return studentMapper.update(student);
+    }
+
 
 }
