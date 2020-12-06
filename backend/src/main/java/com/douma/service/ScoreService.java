@@ -8,21 +8,14 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-public interface QueryScoreService {
+public interface ScoreService {
 
     /**
      * 通过 id 查询成绩
      * @param studentId
      * @return
      */
-    List<Score> findById(Integer studentId);
-
-    /**
-     * 分页查询所有的测验科目
-     * @param page
-     * @return
-     */
-    IPage<ExamManager> findAll(Page<ExamManager> page);
+    List<Score> findByStudentId(Integer studentId);
 
     /**
      *查询学生学科的分数
@@ -31,11 +24,4 @@ public interface QueryScoreService {
      */
     List<Score> fondByExamCode(Integer ExamCode);
 
-    /**
-     * 查询所有的成绩信息帮助分页
-     * @return
-     */
-    /*List<Score> findAll();
-
-    IPage<Score> findById(Page<?> page, Integer studentId);*/
 }
