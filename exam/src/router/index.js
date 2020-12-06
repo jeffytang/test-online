@@ -14,6 +14,22 @@ export default new Router({
       component: () => import('@/components/admin/index'),
       children: [
         {
+          path: '/scorePart',
+          component: () => import('@/components/charts/scorePart')
+        },
+        {
+          path: '/selectExamToPart', //学生分数段
+          component: () => import('@/components/teacher/selectExamToPart')
+        },
+        {
+          path: '/allStudentsGrade', //所有学生成绩统计
+          component: () => import('@/components/teacher/allStudentsGrade')
+        },
+        {
+          path:'/grade', //学生成绩
+          component: () => import('@/components/charts/grade')
+        },
+        {
           path: '/examDescription', //考试管理功能描述
           component: () => import('@/components/teacher/examDescription')
         },
