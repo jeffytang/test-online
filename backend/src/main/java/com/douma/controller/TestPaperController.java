@@ -4,12 +4,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ApiResult;
 import com.douma.entity.ExamManager;
+import com.douma.entity.TestPaper;
 import com.douma.service.TestPaperService;
 import com.douma.util.ApiResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestPaperController {
@@ -28,5 +27,24 @@ public class TestPaperController {
             return ApiResultHandler.buildApiResult(403, "查询错误", null);
         }
     }
+
+    @GetMapping("/examManagePaperId")
+    public ApiResult findByPaperId(){
+        ExamManager res = testPaperService.findByPaperId();
+        return ApiResultHandler.buildApiResult(200,"查询成功", res);
+    }
+
+    /**
+     * 添加考试信息
+     * @param examManager
+     * @return
+     */
+    @PostMapping("/exam")
+    public ApiResult add(@RequestBody ExamManager examManager){
+        int res = testPaperService.add(examManager);
+        return ApiResultHandler.buildApiResult(200, "成功添加", res);
+    }
+
+    public ApiResult
 
 }
