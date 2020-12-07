@@ -66,6 +66,13 @@ export default new Router({
           component: () => import ('@/components/admin/addTeacher')
         }
       ]
+    },
+    {
+      path: '/student',
+      component: () => import('@/components/student/index'),
+      children: [
+        {path:"/",component: ()=> import('@/components/student/myExam')}
+      ]
     }
   ]
 })
