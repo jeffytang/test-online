@@ -7,13 +7,15 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface TestBaseMapper {
+public interface AnswersMapper {
 
     /**
      * 分页
      * @param page
      * @return
      */
-    @Select("select * from fill_question as f join judge_question as j on j.score = f.score")
+    @Select("select question, subject, score, section,level, \"选择题\" as type from multi_question\n" +
+            "union select  question, subject, score, section,level, \"判断题\" as type from judge_question\n" +
+            "union select  question, subject, score, section,level, \"填空题\" as type from fill_question")
     IPage<FillQuestion> selectAll(Page page);
 }

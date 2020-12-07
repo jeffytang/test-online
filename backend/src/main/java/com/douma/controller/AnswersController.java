@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ApiResult;
 import com.douma.entity.FillQuestion;
-import com.douma.service.TestBaseService;
+import com.douma.service.AnswersService;
 import com.douma.util.ApiResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestBaseController {
+public class AnswersController {
     @Autowired
-    private TestBaseService testBaseService;
+    private AnswersService testBaseService;
 
     @GetMapping("/answers/{page}/{size}")
     public ApiResult answers(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
