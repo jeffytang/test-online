@@ -7,6 +7,8 @@ import lombok.Data;
 public class FillQuestion {
     private Integer questionId;
 
+    private String type;
+
     private String subject;
 
     private String question;
@@ -83,5 +85,13 @@ public class FillQuestion {
 
     public void setAnalysis(String analysis) {
         this.analysis = analysis;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
