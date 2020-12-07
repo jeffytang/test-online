@@ -14,6 +14,22 @@ export default new Router({
       component: () => import('@/components/admin/index'),
       children: [
         {
+          path: '/answerDescription', //题库管理功能介绍
+          component: ()=> import('@/components/teacher/answerDescription')
+        },
+        {
+          path: '/selectAnswer', //查询所有题库
+          component: () => import('@/components/teacher/selectAnswer')
+        },
+        {
+          path: '/addAnswer', //增加题库主界面
+          component: () => import('@/components/teacher/addAnswer')
+        },
+        {
+          path: '/addAnswerChildren', //点击试卷跳转到添加题库页面
+          component: () => import('@/components/teacher/addAnswerChildren')
+        },
+        {
           path: '/scorePart',
           component: () => import('@/components/charts/scorePart')
         },
