@@ -1,7 +1,8 @@
 package com.douma.service;
 
 import com.douma.entity.PaperManager;
-import org.apache.ibatis.annotations.Insert;
+
+import java.util.List;
 
 public interface PaperManagerService {
     /**
