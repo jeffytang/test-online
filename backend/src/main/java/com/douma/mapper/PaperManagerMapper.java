@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface PaperManagerMapper {
 
@@ -18,5 +20,11 @@ public interface PaperManagerMapper {
             "(#{paperId},#{questionType},#{questionId})")
     int insert(PaperManager paperManager);
 
-
+    /**
+     * 通过 paperId 查询试卷
+     * @param paperId
+     * @return
+     */
+    @Select("select paperId, questionType,questionId from paper_manage where paperId = #{paperId}")
+    List<PaperManager> selectByPaperId(Integer paperId);
 }

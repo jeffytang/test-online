@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -34,6 +35,16 @@ public interface FillQuestionMapper {
      * 查找指定条数的记录
      * @return
      */
-    @Select("select questionId from fill_question where subject = #{subject} order by rand() desc limit #{pageNo}")
+    @Select("select questionId from fill_question where subject = " +
+            "#{subject} order by rand() desc limit #{pageNo}")
     List<Integer> findBySubject(String subject,Integer pageNo);
+
+    /**
+     * 根据传回的paperId 查询填空题的数量
+     * @param paperId
+     * @return
+     */
+    @Select("select * from fill_question where questionId in " +
+            "(select questionId from paper_manage where paperId = #{paperId})")
+    List<FillQuestion> selectByPaperId(Integer paperId);
 }

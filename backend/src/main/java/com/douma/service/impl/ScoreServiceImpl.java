@@ -37,4 +37,14 @@ public class ScoreServiceImpl implements ScoreService {
         return scoreMapper.selectByExamCode(ExamCode);
     }
 
+    /**
+     *添加一条成绩
+     * @param score
+     * @return
+     */
+    @Override
+    public int add(Score score) {
+        return scoreMapper.insert(score);
+    }
+
 }

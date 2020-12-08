@@ -1,5 +1,6 @@
 package com.douma.mapper;
 
+import com.douma.entity.FillQuestion;
 import com.douma.entity.JudgeQuestion;
 import com.douma.entity.MultiQuestion;
 import org.apache.ibatis.annotations.Insert;
@@ -35,4 +36,13 @@ public interface JudgeQuestionMapper {
      */
     @Select("select questionId from judge_question  where subject=#{subject}  order by rand() desc limit #{pageNo}")
     List<Integer> findBySubject(String subject,Integer pageNo);
+
+    /**
+     * 根据传回的paperId 查询判断题的数量
+     * @param paperId
+     * @return
+     */
+    @Select("select * from judge_question where questionId in " +
+            "(select questionId from paper_manage where paperId = #{paperId})")
+    List<JudgeQuestion> selectByPaperId(Integer paperId);
 }

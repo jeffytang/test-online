@@ -83,8 +83,11 @@ export default new Router({
       path: '/student',
       component: () => import('@/components/student/index'),
       children: [
-        {path:"/",component: ()=> import('@/components/student/myExam')}
+        {path:"/",component: ()=> import('@/components/student/myExam')},
+        {path: '/examMsg', component: () => import('@/components/student/examMsg')},
+        {path: '/studentScore', component: () => import("@/components/student/answerScore")},
       ]
-    }
+    },
+    {path: '/answer',component: () => import('@/components/student/answer')}
   ]
 })

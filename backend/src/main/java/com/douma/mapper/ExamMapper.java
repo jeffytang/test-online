@@ -3,8 +3,9 @@ package com.douma.mapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ExamManager;
-import com.douma.entity.TestPaper;
 import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 @Mapper
 public interface ExamMapper {
@@ -15,6 +16,13 @@ public interface ExamMapper {
      */
     @Select("select * from exam_manager")
     IPage<ExamManager> selectAll(Page page);
+
+    /**
+     * 不要忘记不分页返回的是一个 list 集合
+     * @return
+     */
+    @Select("select * from exam_manager")
+    List<ExamManager> findAllUnPage();
 
     /**
      * 查询最后一条记录

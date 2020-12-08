@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 public interface FillQuestionService {
     /**
      * 添加题目
@@ -18,4 +20,11 @@ public interface FillQuestionService {
      * @return
      */
     FillQuestion findOnlyQuestionId();
+
+    /**
+     * 根据传回的paperId 查询填空题的数量
+     * @param paperId
+     * @return
+     */
+//    List<FillQuestion> findByPaperId(Integer paperId);
 }
