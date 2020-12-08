@@ -148,7 +148,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 DROP TABLE IF EXISTS `paper_manage`;
 CREATE TABLE `paper_manage`  (
   `paperId` int(9) NULL DEFAULT NULL COMMENT '试卷编号',
-  `questionType` int(1) NULL DEFAULT NULL COMMENT '题目类型',
+  `questionType` int(1) NULL DEFAULT NULL COMMENT '题目类型 1 表示填空题 2 表示选择题 3 表示判断题 ',
   `questionId` int(9) NULL DEFAULT NULL COMMENT '题目编号'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin COMMENT = '试卷管理表' ROW_FORMAT = Dynamic;
 
