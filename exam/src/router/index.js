@@ -14,6 +14,10 @@ export default new Router({
       component: () => import('@/components/admin/index'),
       children: [
         {
+          path: '/', //首页默认路由
+          component: () => import('@/components/common/hello')
+        },
+        {
           path: '/answerDescription', //题库管理功能介绍
           component: ()=> import('@/components/teacher/answerDescription')
         },
