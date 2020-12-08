@@ -50,6 +50,14 @@ export default new Router({
           component: () => import('@/components/teacher/examDescription')
         },
         {
+          path: '/selectExam', //查询所有考试
+          component: () => import('@/components/teacher/selectExam')
+        },
+        {
+          path: '/addExam', //添加考试
+          component: () => import('@/components/teacher/addExam')
+        },
+        {
           path: '/studentManage', //学生管理界面
           component: () => import('@/components/teacher/studentManage')
         },
