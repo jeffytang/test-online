@@ -14,6 +14,10 @@ export default new Router({
       component: () => import('@/components/admin/index'),
       children: [
         {
+          path: '/', //首页默认路由
+          component: () => import('@/components/common/hello')
+        },
+        {
           path: '/answerDescription', //题库管理功能介绍
           component: ()=> import('@/components/teacher/answerDescription')
         },
@@ -48,6 +52,14 @@ export default new Router({
         {
           path: '/examDescription', //考试管理功能描述
           component: () => import('@/components/teacher/examDescription')
+        },
+        {
+          path: '/selectExam', //查询所有考试
+          component: () => import('@/components/teacher/selectExam')
+        },
+        {
+          path: '/addExam', //添加考试
+          component: () => import('@/components/teacher/addExam')
         },
         {
           path: '/studentManage', //学生管理界面

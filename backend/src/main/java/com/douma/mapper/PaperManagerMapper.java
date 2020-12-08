@@ -17,4 +17,6 @@ public interface PaperManagerMapper {
     @Insert("insert into paper_manage(paperId,questionType,questionId) values " +
             "(#{paperId},#{questionType},#{questionId})")
     int insert(PaperManager paperManager);
+
+
 }

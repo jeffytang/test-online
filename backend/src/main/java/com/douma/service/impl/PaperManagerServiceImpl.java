@@ -6,6 +6,8 @@ import com.douma.service.PaperManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaperManagerServiceImpl implements PaperManagerService {
     @Autowired
@@ -15,4 +17,5 @@ public class PaperManagerServiceImpl implements PaperManagerService {
     public int add(PaperManager paperManager) {
         return paperManagerMapper.insert(paperManager);
     }
+
 }
