@@ -5,8 +5,7 @@ import com.douma.entity.PaperManager;
 import com.douma.mapper.FillQuestionMapper;
 import com.douma.mapper.JudgeQuestionMapper;
 import com.douma.mapper.MultiQuestionMapper;
-import com.douma.service.ItemService;
-import com.douma.service.PaperManagerService;
+import com.douma.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,13 @@ import java.util.List;
 
 @Service
 public class ItemServiceImpl implements ItemService {
+    /*@Autowired
+    private FillQuestionService fillQuestionMapper;
+    @Autowired
+    private JudgeQuestionService judgeQuestionMapper;
+    @Autowired
+    private MultiQuestionService multiQuestionMapper;*/
+
     @Autowired
     private FillQuestionMapper fillQuestionMapper;
     @Autowired

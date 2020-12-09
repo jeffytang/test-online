@@ -3,11 +3,8 @@ package com.douma.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ExamManager;
-import com.douma.entity.TestPaper;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 public interface ExamService {
 
@@ -17,6 +14,13 @@ public interface ExamService {
      * @return
      */
     IPage<ExamManager> findAll(Page<ExamManager> page);
+
+
+    /**
+     * 不要忘记不分页返回的是一个 list 集合
+     * @return
+     */
+    List<ExamManager> findAllUnPage();
 
     /**
      * 查询最后一条记录

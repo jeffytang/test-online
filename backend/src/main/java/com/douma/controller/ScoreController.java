@@ -5,9 +5,7 @@ import com.douma.entity.Score;
 import com.douma.service.ScoreService;
 import com.douma.util.ApiResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +33,21 @@ public class ScoreController {
     public ApiResult findByExamCode(@PathVariable("examCode") Integer examCode){
         List<Score> res = scoreService.fondByExamCode(examCode);
         return ApiResultHandler.buildApiResult(200, "成功查询", res);
+    }
+
+    /**
+     * 添加一条分数记录
+     * @param score
+     * @return
+     */
+    @PostMapping("/score")
+    public ApiResult add(@RequestBody Score score) {
+        int res = scoreService.add(score);
+        if (res == 0) {
+            return ApiResultHandler.buildApiResult(400,"成绩添加失败",res);
+        }else {
+            return ApiResultHandler.buildApiResult(200,"成绩添加成功",res);
+        }
     }
 
 }

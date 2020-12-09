@@ -6,6 +6,8 @@ import com.douma.service.FillQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FillQuestionServiceImpl implements FillQuestionService {
     @Autowired
@@ -20,4 +22,9 @@ public class FillQuestionServiceImpl implements FillQuestionService {
     public FillQuestion findOnlyQuestionId() {
         return fillQuestionMapper.selectOnlyQuestionId();
     }
+
+    /*@Override
+    public List<FillQuestion> findByPaperId(Integer paperId) {
+        return fillQuestionMapper.selectByPaperId(paperId);
+    }*/
 }

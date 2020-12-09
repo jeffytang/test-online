@@ -9,6 +9,8 @@ import com.douma.util.ApiResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ExamController {
     @Autowired
@@ -20,6 +22,23 @@ public class ExamController {
     public ApiResult findAll(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         Page<ExamManager> examManager = new Page<>(page,size);
         IPage<ExamManager> res = examService.findAll(examManager);
+        if (res != null){
+            return ApiResultHandler.buildApiResult(200, "成功查询", res);
+        }else {
+            return ApiResultHandler.buildApiResult(403, "查询错误", null);
+        }
+    }
+
+    /**
+     * 不进行分页查询所有试卷
+     * 此时前端报 Cannot read property 'includes' of null 错误应该是页面没有连接，
+     * 所以无法自动跳转到页面所出现的错误，下一步修改点击试卷信息会弹出一个界面，
+     * 预计此时错误会解决
+     * @return
+     */
+    @GetMapping("/exams")
+    public ApiResult findAllUnPage(){
+        List<ExamManager> res = examService.findAllUnPage();
         if (res != null){
             return ApiResultHandler.buildApiResult(200, "成功查询", res);
         }else {
