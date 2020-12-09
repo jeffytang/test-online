@@ -37,4 +37,11 @@ public interface ScoreMapper {
             "values(#{examCode},#{studentId},#{subject},#{ptScore},#{etScore},#{score},#{answerDate})")
     int insert(Score score);
 
+    /**
+     * 对查询的分数进行分页
+     * @param page
+     * @return
+     */
+    @Select("select * from score where studentId = #{studentId}")
+    IPage<Score> selectAll(Page page, Integer studentId);
 }
