@@ -71,7 +71,6 @@
           </el-collapse>
         </el-collapse-item>
 
-
       </el-collapse>
     </div>
     <!--考生须知对话框-->
@@ -125,10 +124,6 @@ export default {
             for(let i = 0; i< data.length; i++) { //循环每种题型,计算出总分
               currentScore += data[i].score
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             this.score.push(currentScore) //把每种题型总分存入score
           })
         })
@@ -206,11 +201,7 @@ export default {
   padding: 5px 10px;
   border: 1px solid #88949b;
   border-radius: 4px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master
 .wrapper .bottom {
   display: flex;
   margin-left: 20px;
