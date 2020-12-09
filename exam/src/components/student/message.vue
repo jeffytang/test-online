@@ -79,11 +79,8 @@ export default {
   // },
   methods: {
     getMsg() {
-      console.log(this.pagination.current)
-      console.log(this.pagination.size)
       this.$axios(`/api/messages/${this.pagination.current}/${this.pagination.size}`).then(res => {
         let status = res.data.code
-        console.log(status)
         if(status == 200) {
           this.msg = res.data.data.records
           this.pagination = res.data.data
