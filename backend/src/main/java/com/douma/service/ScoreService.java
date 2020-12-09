@@ -38,5 +38,6 @@ public interface ScoreService {
      * @param page
      * @return
      */
-    IPage<Score> findAll(Page page);
+    IPage<Score> findAll(Page<Score> page, Integer studentId);
+
 }

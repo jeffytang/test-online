@@ -48,8 +48,8 @@ public class ScoreServiceImpl implements ScoreService {
     }
 
     @Override
-    public IPage<Score> findAll(Page page) {
-        return scoreMapper.selectAll(page);
+    public IPage<Score> findAll(Page<Score> page, Integer studentId) {
+        return scoreMapper.selectAll(page, studentId);
     }
 
 }

@@ -42,6 +42,6 @@ public interface ScoreMapper {
      * @param page
      * @return
      */
-    @Select("select * from Score")
-    IPage<Score> selectAll(Page page);
+    @Select("select * from score where studentId = #{studentId}")
+    IPage<Score> selectAll(Page page, Integer studentId);
 }

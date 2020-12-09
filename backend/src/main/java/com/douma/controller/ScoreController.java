@@ -53,10 +53,11 @@ public class ScoreController {
         }
     }
 
-    @GetMapping("/score/{current}/{size}")
-    public ApiResult findAll(@PathVariable("current") Integer current, @PathVariable("size") Integer size){
+    @GetMapping("/score/{page}/{size}/{studentId}")
+    public ApiResult findAll(@PathVariable("page") Integer current, @PathVariable("size") Integer size,
+                             @PathVariable("studentId") Integer studentId){
         Page page = new Page(current, size);
-        IPage<Score> res = scoreService.findAll(page);
+        IPage<Score> res = scoreService.findAll(page,studentId);
         return ApiResultHandler.buildApiResult(200, "分页成功", res);
     }
 
