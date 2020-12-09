@@ -71,9 +71,9 @@ public class TeacherController {
     public ApiResult add(@RequestBody Teacher teacher){
         int res = teacherService.add(teacher);
         if (res == 1){
-            return ApiResultHandler.buildApiResult(200, "成功删除", res);
+            return ApiResultHandler.buildApiResult(200, "添加成功", res);
         }else {
-            return ApiResultHandler.buildApiResult(200, "删除失败", res);
+            return ApiResultHandler.buildApiResult(200, "添加失败", res);
         }
     }
 

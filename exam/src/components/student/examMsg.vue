@@ -124,7 +124,6 @@ export default {
             for(let i = 0; i< data.length; i++) { //循环每种题型,计算出总分
               currentScore += data[i].score
             }
-
             this.score.push(currentScore) //把每种题型总分存入score
           })
         })
