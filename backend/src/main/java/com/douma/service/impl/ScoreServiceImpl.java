@@ -47,4 +47,9 @@ public class ScoreServiceImpl implements ScoreService {
         return scoreMapper.insert(score);
     }
 
+    @Override
+    public IPage<Score> findAll(Page page) {
+        return scoreMapper.selectAll(page);
+    }
+
 }

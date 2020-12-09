@@ -1,11 +1,14 @@
 package com.douma.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ApiResult;
 import com.douma.entity.Score;
 import com.douma.service.ScoreService;
 import com.douma.util.ApiResultHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -48,6 +51,13 @@ public class ScoreController {
         }else {
             return ApiResultHandler.buildApiResult(200,"成绩添加成功",res);
         }
+    }
+
+    @GetMapping("/score/{current}/{size}")
+    public ApiResult findAll(@PathVariable("current") Integer current, @PathVariable("size") Integer size){
+        Page page = new Page(current, size);
+        IPage<Score> res = scoreService.findAll(page);
+        return ApiResultHandler.buildApiResult(200, "分页成功", res);
     }
 
 }

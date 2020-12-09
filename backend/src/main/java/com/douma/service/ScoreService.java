@@ -33,4 +33,10 @@ public interface ScoreService {
      */
     int add(Score score);
 
+    /**
+     * 对查询的分数进行分页
+     * @param page
+     * @return
+     */
+    IPage<Score> findAll(Page page);
 }
