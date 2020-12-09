@@ -3,6 +3,7 @@ package com.douma.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.Student;
+import org.apache.ibatis.annotations.Update;
 
 public interface StudentService {
     /**
@@ -37,4 +38,14 @@ public interface StudentService {
      * @return
      */
     int removeById(Integer studentId);
+
+
+    /**
+     * 通过 password 修改密码
+     * @param studentId
+     * @param password
+     * @return
+     */
+    int savePwd(Student student);
+
 }

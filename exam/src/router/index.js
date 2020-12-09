@@ -78,6 +78,15 @@ export default new Router({
           component: () => import ('@/components/admin/addTeacher')
         }
       ]
+    },
+    {
+      path: '/student',
+      component: () => import('@/components/student/index'),
+      children: [
+        {path:'/startExam', component: () => import('@/components/student/startExam')},
+        {path: '/examMsg', component: () => import('@/components/student/examMsg')},
+        {path: '/manager', component: () => import('@/components/student/manager')},
+      ]
     }
   ]
 })

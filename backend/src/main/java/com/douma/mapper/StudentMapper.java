@@ -38,8 +38,15 @@ public interface StudentMapper {
             "where studentId = #{studentId}")
     int update(Student student);
 
+    /**
+     * 删除学生
+     * @param studentId
+     * @return
+     */
     @Delete("delete from student where studentId = #{studentId}")
     int deleteById(Integer studentId);
 
+    @Update("update student set pwd = #{pwd} where studentId = #{studentId}")
+    int updatePwd(Student student);
 
 }

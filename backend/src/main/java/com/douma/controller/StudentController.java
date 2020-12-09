@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
+
 @RestController
 public class StudentController {
     @Autowired
@@ -76,7 +78,12 @@ public class StudentController {
         }else {
             return ApiResultHandler.buildApiResult(200, "删除成功", res);
         }
+    }
 
+    @PutMapping("/studentPWD")
+    public ApiResult updatePWD(@RequestBody Student student){
+        int res = studentService.savePwd(student);
+        return ApiResultHandler.buildApiResult(200, "删除成功", res);
     }
 
 }
