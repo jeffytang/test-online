@@ -8,6 +8,8 @@ import com.douma.service.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ExamServiceImpl implements ExamService {
     @Autowired
@@ -22,6 +24,16 @@ public class ExamServiceImpl implements ExamService {
     public IPage<ExamManager> findAll(Page<ExamManager> page) {
         return examMapper.selectAll(page);
     }
+
+    /**
+     * 不要忘记不分页返回的是一个 list 集合
+     * @return
+     */
+    @Override
+    public List<ExamManager> findAllUnPage() {
+        return examMapper.findAllUnPage();
+    }
+
 
     /**
      * 查询最后一条记录

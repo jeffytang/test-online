@@ -57,7 +57,7 @@ const mutations = {
   }
 }
 const getters = {
- 
+
 }
 const actions = {
   getUserInfo(context,info) {

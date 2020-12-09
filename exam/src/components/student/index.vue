@@ -69,7 +69,7 @@ export default {
       this.$router.push({path:'/startExam'})
     },
     exam() { //跳转考试模式
-     let isPractice = false
+      let isPractice = false
       this.$store.commit("practice", isPractice)
       this.$router.push({path:'/student'})
     }

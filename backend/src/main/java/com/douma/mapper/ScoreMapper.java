@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ExamManager;
 import com.douma.entity.Score;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -25,5 +27,14 @@ public interface ScoreMapper {
      */
     @Select("select * from score where examCode = #{ExamCode}")
     List<Score> selectByExamCode(Integer ExamCode);
+
+    /**
+     * @param score 添加一条成绩记录
+     * @return
+     */
+    @Options(useGeneratedKeys = true,keyProperty = "scoreId")
+    @Insert("insert into score(examCode,studentId,subject,ptScore,etScore,score,answerDate) " +
+            "values(#{examCode},#{studentId},#{subject},#{ptScore},#{etScore},#{score},#{answerDate})")
+    int insert(Score score);
 
 }

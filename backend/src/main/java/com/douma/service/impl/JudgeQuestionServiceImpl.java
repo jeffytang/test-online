@@ -6,6 +6,8 @@ import com.douma.service.JudgeQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class JudgeQuestionServiceImpl implements JudgeQuestionService {
     @Autowired
@@ -29,4 +31,9 @@ public class JudgeQuestionServiceImpl implements JudgeQuestionService {
     public JudgeQuestion findByOnlyQuestionId() {
         return judgeQuestionMapper.selectByOnlyQuestionId();
     }
+
+//    @Override
+//    public List<JudgeQuestion> selectByPaperId(Integer paperId) {
+//        return judgeQuestionMapper.selectByPaperId(paperId);
+//    }
 }

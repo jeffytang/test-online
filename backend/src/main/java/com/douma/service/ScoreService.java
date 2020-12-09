@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.douma.entity.ExamManager;
 import com.douma.entity.Score;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -23,5 +25,12 @@ public interface ScoreService {
      * @return
      */
     List<Score> fondByExamCode(Integer ExamCode);
+
+    /**
+     *添加一条成绩
+     * @param score
+     * @return
+     */
+    int add(Score score);
 
 }
