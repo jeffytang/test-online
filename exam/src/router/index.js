@@ -87,6 +87,8 @@ export default new Router({
         {path: '/examMsg', component: () => import('@/components/student/examMsg')},
         {path: '/studentScore', component: () => import("@/components/student/answerScore")},
         {path: '/scoreTable', component: () => import("@/components/student/scoreTable")}
+        {path: '/manager', component: () => import('@/components/student/manager')},
+        {path:'/startExam', component: () => import('@/components/student/startExam')},
       ]
     },
     {path: '/answer',component: () => import('@/components/student/answer')}

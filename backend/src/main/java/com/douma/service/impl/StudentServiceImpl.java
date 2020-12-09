@@ -43,6 +43,11 @@ public class StudentServiceImpl implements StudentService {
         return studentMapper.deleteById(studentId);
     }
 
+    @Override
+    public int savePwd(Student student) {
+        return studentMapper.updatePwd(student);
+    }
+
     /**
      * 修改学生信息
      * @param student
