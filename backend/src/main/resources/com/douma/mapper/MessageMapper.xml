@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.douma.mapper.MessageMapper">
+    <resultMap id="message" type="com.douma.entity.Message">
+        <result property="id" column="id"/>
+        <result property="temp_id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="time" column="time"/>
+        <!--collection 说明这是一对多的关系，多久放在这里
+        property 是多的属性名，javaType 是他的类型-->
+        <collection property="replays"  resultMap="replay"/>
+    </resultMap>
+
+    <resultMap id="replay" type="com.douma.entity.Replay">
+        <result column="messageId" property="messageId"/>
+        <result column="replayId" property="replayId"/>
+        <result column="replay" property="replay"/>
+        <result column="replayTime" property="replayTime"/>
+    </resultMap>
+
+    <select id="selectAll"  resultMap="message" parameterType="com.douma.entity.Message">
+        select
+        id, id as temp_id,title,content,time, r.messageId, r.replayId, r.replay, r.replayTime
+        from (select * from message limit #{page}, #{size}) m
+        left join replay r on m.id = r.messageId
+    </select>
+    
+    <select id="count" resultType="java.lang.Integer">
+        select count(id) from message
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.douma.entity.Message">
+        insert into message(title, content, time)
+        values(#{message.title},#{message.content},#{message.time})
+    </insert>
+
+</mapper>

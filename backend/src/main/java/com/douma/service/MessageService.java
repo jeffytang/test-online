@@ -16,8 +16,9 @@ public interface MessageService {
 
     /**
      * 给学生留言分页，通过 @Many 注解控制查询条件
-     * @param page
+     * @param
      * @return
      */
-    IPage<Message> findAll(Page<Message> page);
+    IPage<Message> findAll(Integer page, Integer size);
+
 }

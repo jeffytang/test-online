@@ -22,8 +22,8 @@ public class MessageController {
 
     @GetMapping("/messages/{page}/{size}")
     public ApiResult findAll(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
-        Page<Message> messagePage = new Page<>(page, size);
-        IPage<Message> res = messageService.findAll(messagePage);
+        //Page<Message> messagePage = new Page<>(page, size);
+        IPage<Message> res = messageService.findAll(page, size);
 
         return ApiResultHandler.buildApiResult(200, "成功查询", res);
     }
