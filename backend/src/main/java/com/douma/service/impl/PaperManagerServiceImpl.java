@@ -47,4 +47,9 @@ public class PaperManagerServiceImpl implements PaperManagerService {
         return map;
     }
 
+    @Override
+    public int batchInsert(List<PaperManager> paperManager) {
+        return paperManagerMapper.batchInsert(paperManager);
+    }
+
 }

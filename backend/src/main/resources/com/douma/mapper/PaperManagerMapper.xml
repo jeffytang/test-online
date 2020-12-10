@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.douma.mapper.PaperManagerMapper">
+    <resultMap id="PaperManagerMapper" type="com.douma.entity.PaperManager">
+        <result property="paperId" column="paperId"/>
+        <result property="questionType" column="questionType"/>
+        <result property="questionId" column="questionId"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.douma.entity.PaperManager">
+        insert into paper_manage(paperId, questionType, questionId)
+        values (#{paperManager.paperId}, #{paperManager.questionType}, #{paperManager.questionId})
+    </insert>
+
+    <select id="selectByPaperId" parameterType="java.lang.Integer">
+        select * from paper_manage where paperId = #{paperId}
+    </select>
+
+    <insert id="batchInsert" parameterType="com.douma.entity.PaperManager">
+        insert into paper_manage(paperId, questionType, questionId)
+        values
+        <foreach collection="list" item="item" separator=", ">
+            (#{item.paperId}, #{item.questionType}, #{item.questionId})
+        </foreach>
+    </insert>
+</mapper>

@@ -20,4 +20,6 @@ public interface PaperManagerService {
      * @return
      */
     Map<Integer, List<?>> findByPaperId(Integer paperId);
+
+    int batchInsert(List<PaperManager> paperManager);
 }
