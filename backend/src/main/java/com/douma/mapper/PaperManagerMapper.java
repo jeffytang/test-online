@@ -20,7 +20,7 @@ public interface PaperManagerMapper {
 //    @Insert("insert into paper_manage(paperId,questionType,questionId) values " +
 //            "(#{paperId},#{questionType},#{questionId})")
 //    int insert(PaperManager paperManager);
-    Integer insert(@Param("paperManager") PaperManager paperManager);
+    Integer insert(PaperManager paperManager);
 
     /**
      * 通过 paperId 查询试卷
